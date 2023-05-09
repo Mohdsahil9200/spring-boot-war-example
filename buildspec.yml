@@ -8,12 +8,11 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn package
+      - mv target/hello-world-0.0.1-SNAPSHOT.war myapp.war
   post_build:
     commands:
       - echo Build completed on `date`
-      - mvn package
 artifacts:
   files:
-    - target/my-app-1.0-SNAPSHOT.jar
-    - appspec.yml
-  discard-paths: yes
+    - myapp.war
+
